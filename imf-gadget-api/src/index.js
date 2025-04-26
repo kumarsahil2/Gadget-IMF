@@ -16,8 +16,9 @@ app.use(gadgetRoutes);
 
 AppDataSource.initialize()
   .then(() => {
-    app.listen(3000, () => {
-      console.log("🚀 Server running at http://localhost:3000");
+    app.listen(process.env.PORT || 3000, () => {
+      console.log(`🚀 Server running at http://localhost:${process.env.PORT || 3000}`);
     });
+    
   })
   .catch((err) => console.error("DB Connection Error: ", err));
